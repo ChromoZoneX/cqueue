@@ -2,8 +2,6 @@
 	the underlying data structure. It only accepts integers for now. You may 
 	create only one queue at a time.
 
-	This library is thread safe but not POSIX compliant.
-
 	Author: Huzefa Fatakdawala
  */
 #include "cqueue.h"
@@ -12,21 +10,6 @@ int cq_init(cqueue *q, int size) {
 	int *internal_queue = q->queue;
 	int i;
 
-	q->queue = malloc(sizeof(int) * size);
-	if(!q->queue) {
-		printf("Queue memory allocation failure.\n");
-		return -1;
-	}
-	
-	q->size = size;
-	q->head = q->tail = internal_queue[0];
-	q->items = 0;
-	q->full = 0;
-
-	for(i = 0; i < q->size; i++) {
-		internal_queue[i] = -1;
-	}
-	return 0;
 }
 
 int cq_isfull(cqueue *q) {
