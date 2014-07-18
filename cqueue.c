@@ -7,7 +7,9 @@
 #include "cqueue.h"
 
 int cq_init(cqueue *q, int size) {
-	
+	q->size = size;
+	q->queue = malloc(sizeof(int) * size);
+	q->head = q->tail = 0;
 }
 
 int cq_enqueue(cqueue *q, int obj) {
