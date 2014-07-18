@@ -10,11 +10,6 @@ int cq_init(cqueue *q, int size) {
 	
 }
 
-int cq_isfull(cqueue *q) {
-	if (q->full) return 1;
-	else return 0;
-}
-
 int cq_enqueue(cqueue *q, int obj) {
 	
 }
