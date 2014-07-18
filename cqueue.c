@@ -13,7 +13,13 @@ int cq_init(cqueue *q, int size) {
 }
 
 int cq_enqueue(cqueue *q, int obj) {
-	
+	int *internal_queue = q->queue;
+
+	if(q->size == 0) {
+		internal_queue[0] = obj;
+		q->head = q->tail = 0;
+	}
+
 }
 
 int cq_dequeue(cqueue *q, int ret) {

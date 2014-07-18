@@ -6,6 +6,7 @@ typedef struct _cqueue {
 	int *queue;
 	int head;
 	int tail;
+	int items;
 	int size;
 } cqueue;
 
