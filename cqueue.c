@@ -23,13 +23,12 @@ int cq_enqueue(cqueue *q, int obj) {
 }
 
 int cq_dequeue(cqueue *q, int ret) {
-	if(cqueue.size == 0){
+	if(q.size == 0){
 		return -1;
 	}
-		
 	ret = head;
 	head = cq_next(q,head);
-	--cqueue.items;
+	--q.items;
 	return 0;
 }
 
