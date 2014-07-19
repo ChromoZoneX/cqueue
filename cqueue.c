@@ -10,15 +10,29 @@ int cq_init(cqueue *q, int size) {
 	q->size = size;
 	q->queue = malloc(sizeof(int) * size);
 	q->head = q->tail = 0;
+	q->items = 0;
 }
 
 int cq_enqueue(cqueue *q, int obj) {
 	int *internal_queue = q->queue;
+	int index;
 
-	if(q->size == 0) {
-		internal_queue[0] = obj;
-		q->head = q->tail = 0;
+	if(q->items == 10) {
+		printf("WARN: Queue is full. Item dropped.\n");
+		return -1;
 	}
+
+	if(q->items == 0) {
+		internal_queue[q->head] = obj;
+		q->head = q->tail;
+		q->items++;
+		return 0;
+	}
+
+	index = cq_next(q, q->tail);
+	internal_queue[index] = obj;
+	q->tail = index;
+	return 0;
 
 }
 
