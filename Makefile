@@ -5,19 +5,22 @@ LDFLAGS=
 
 #DEBUG=-g
 
-OBJS=cqueue.o
+OBJS=main.o cqueue.o
 
-all: produce
+all: main
 
 produce: $(OBJS) 
 	$(LD) $(LDFLAGS) $(DEBUG) -o $@ $(OBJS) 
 
-main.o: processes.c 
-	$(CC) $(CFLAGS) $(DEBUG) -c processes.c 
+main.o: main.c 
+	$(CC) $(CFLAGS) $(DEBUG) -c main.c 
+
+cqueue.o: cqueue.c
+	$(CC) $(CFLAGS) $(DEBUG) -c cqueue.c
 
 .PHONY: clean
 clean:
-	rm -f *.o *.out produce
+	rm -f *.o *.out main
 
 rebuild:
 	make clean
