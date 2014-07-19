@@ -59,6 +59,16 @@ int cq_destroy(cqueue *q) {
 	return 0;
 }
 
+int cq_print(cqueue *q) {
+	int index;
+	index = q->head;
+	while(index != q->tail) {
+		printf("%d", q->queue[index]);
+	}
+	printf("%d\n", q->queue[q->tail]);
+	return 0;
+}
+
 static int cq_next(cqueue *q, int x) {
 	if(x == q->size - 1) {
 		return 0;
