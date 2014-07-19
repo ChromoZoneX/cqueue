@@ -42,7 +42,7 @@ int cq_enqueue(cqueue *q, int buf);
 	@return Zero on success. Non-zero otherwise.
 
  */
-int cq_dequeue(cqueue *q, int ret);
+int cq_dequeue(cqueue *q, int *ret);
 
 /*	This function must be called on a cqueue that has been initialized using the cq_init() function. If the
 	cqueue was never initialized, this will result in undefined behaviour.

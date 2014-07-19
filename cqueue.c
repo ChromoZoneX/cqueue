@@ -36,7 +36,7 @@ int cq_enqueue(cqueue *q, int obj) {
 
 }
 
-int cq_dequeue(cqueue *q, int buf) {
+int cq_dequeue(cqueue *q, int *buf) {
 	int *internal_queue = q->queue;
 	int index;
 
@@ -45,7 +45,7 @@ int cq_dequeue(cqueue *q, int buf) {
 		return -1;
 	}
 
-	buf = internal_queue[q->head];
+	*buf = internal_queue[q->head];
 	if(q->items > 1) {
 		q->head = cq_next(q,q->head);
 	}
