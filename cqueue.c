@@ -23,11 +23,14 @@ int cq_enqueue(cqueue *q, int obj) {
 }
 
 int cq_dequeue(cqueue *q, int ret) {
-	int tmp;
-	tmp = head;
+	if(cqueue.size == 0){
+		return -1;
+	}
+		
+	ret = head;
 	head = cq_next(q,head);
-	--cqueue.size;
-	return tmp;
+	--cqueue.items;
+	return 0;
 }
 
 int cq_destroy(cqueue *q, int obj) {
