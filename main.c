@@ -2,7 +2,7 @@
 #include "cqueue.h"
 
 int main(int argc, char *argv[]){
-	cqueue *mq;
+	cqueue *mq = {0};
 	int size, i;
 	size = 10;
 	cq_init(mq, size);
