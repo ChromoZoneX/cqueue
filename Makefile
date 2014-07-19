@@ -7,9 +7,9 @@ LDFLAGS=
 
 OBJS=main.o cqueue.o
 
-all: main
+all: main.out
 
-produce: $(OBJS) 
+main.out: $(OBJS) 
 	$(LD) $(LDFLAGS) $(DEBUG) -o $@ $(OBJS) 
 
 main.o: main.c 
