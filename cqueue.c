@@ -45,8 +45,8 @@ int cq_dequeue(cqueue *q, int ret) {
 		return -1;
 	}
 
-	ret = head;
-	head = cq_next(q,head);
+	ret = internal_queue[q->head];
+	q->head = cq_next(q,q->head);
 	q->items--;
 	return 0;
 }
