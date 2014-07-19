@@ -17,7 +17,7 @@ int cq_enqueue(cqueue *q, int obj) {
 	int *internal_queue = q->queue;
 	int index;
 
-	if(q->items == 10) {
+	if(q->items == q->size) {
 		printf("WARN: Queue is full. Item dropped.\n");
 		return -1;
 	}
@@ -40,9 +40,11 @@ int cq_dequeue(cqueue *q, int ret) {
 	int *internal_queue = q->queue;
 	int index;
 
-	if(q->size == 0){
+	if(q->items == 0) {
+		printf("WARN: Queue is empty. Nothing to dequeue.")
 		return -1;
 	}
+
 	ret = head;
 	head = cq_next(q,head);
 	q->items--;
