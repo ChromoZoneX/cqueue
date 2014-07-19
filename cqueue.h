@@ -50,7 +50,7 @@ int cq_dequeue(cqueue *q, int *ret);
 	Zero on success. Non-zero on failure.
 
 	@param	q 	This is a pointer to the cqueue structure that you need to pass in.
-	@param	ret This is a reference to a buffer of type int to store the dequeued element.	
+	@param	ret This is a pointer to a buffer of type int to store the dequeued element.	
 	@return	Zero on success. Non-zero otherwise.
  */
 int cq_destroy(cqueue *q);
