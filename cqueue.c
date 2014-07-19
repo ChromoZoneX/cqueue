@@ -2,7 +2,6 @@
 	the underlying data structure. It only accepts integers for now. You may 
 	create only one queue at a time.
 
-	Author: Huzefa Fatakdawala
  */
 #include "cqueue.h"
 
