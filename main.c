@@ -1,5 +1,5 @@
+#include <stdio.h>
 #include "cqueue.h"
-
 
 int main(int argc, char *argv[]){
 	cqueue * mq = 0;

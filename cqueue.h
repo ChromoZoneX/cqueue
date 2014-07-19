@@ -1,5 +1,5 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef CQUEUE_H
+#define CQUEUE_H
 
 // Do not overwrite the values in this structure externally.
 typedef struct _cqueue {
@@ -55,6 +55,10 @@ int cq_dequeue(cqueue *q, int *ret);
  */
 int cq_destroy(cqueue *q);
 
+/*	Prints the contents of the queue passed to it from head to tail.
+	
+	@param	q 	This is a pointer to the cqueue that you need to pass in.
+ */
 int cq_print(cqueue *q);
 
 #endif

@@ -3,13 +3,29 @@
 	create only one queue at a time.
 
  */
+#include <stdio.h>
+#include <stdlib.h>
 #include "cqueue.h"
+
+static int cq_next(cqueue *q, int x) {
+	if(x == q->size - 1) {
+		return 0;
+	}
+	else {
+		return x + 1;		
+	}
+}
 
 int cq_init(cqueue *q, int size) {
 	q->size = size;
 	q->queue = malloc(sizeof(int) * size);
+	if(!q->queue) {
+		printf("ERROR: Failed to allocate memory for queue.\n");
+		return -1;
+	}
 	q->head = q->tail = 0;
 	q->items = 0;
+	return 0;
 }
 
 int cq_enqueue(cqueue *q, int obj) {
@@ -38,10 +54,9 @@ int cq_enqueue(cqueue *q, int obj) {
 
 int cq_dequeue(cqueue *q, int *buf) {
 	int *internal_queue = q->queue;
-	int index;
 
 	if(q->items == 0) {
-		printf("WARN: Queue is empty. Nothing to dequeue.")
+		printf("WARN: Queue is empty. Nothing to dequeue.");
 		return -1;
 	}
 
@@ -55,7 +70,11 @@ int cq_dequeue(cqueue *q, int *buf) {
 
 int cq_destroy(cqueue *q) {
 	free(q->queue);
-	q->size = q->head = q->tail = q->items = q->size = 0;
+	q->size = 0;
+	q->head = 0;
+	q->tail = 0;
+	q->items = 0;
+	q->size = 0;
 	return 0;
 }
 
@@ -68,13 +87,4 @@ int cq_print(cqueue *q) {
 	}
 	printf("%d\n", q->queue[q->tail]);
 	return 0;
-}
-
-static int cq_next(cqueue *q, int x) {
-	if(x == q->size - 1) {
-		return 0;
-	}
-	else {
-		return x + 1;		
-	}
 }
