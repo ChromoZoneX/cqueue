@@ -47,7 +47,9 @@ int cq_dequeue(cqueue *q, int ret) {
 }
 
 int cq_destroy(cqueue *q, int obj) {
-	
+	free(q->queue);
+	q.size = q.head = q.tail = q.items = q.size = 0;
+	return 0;
 }
 
 int cq_next(cqueue *q, int x) {
