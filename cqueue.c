@@ -1,10 +1,3 @@
-/*	This is an implementation of a circular buffer. It uses a circular queue as 
-	the underlying data structure. It only accepts integers for now. You may 
-	create only one queue at a time.
-
- */
-#include <stdio.h>
-#include <stdlib.h>
 #include "cqueue.h"
 
 static int cq_next(cqueue *q, int x) {

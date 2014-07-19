@@ -1,3 +1,10 @@
+/*	This is an implementation of a circular buffer. It uses a circular queue as 
+	the underlying data structure. It only accepts integers for now.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
 #ifndef CQUEUE_H
 #define CQUEUE_H
 
