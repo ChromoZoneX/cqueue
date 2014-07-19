@@ -31,11 +31,12 @@ int cq_enqueue(cqueue *q, int obj) {
 	index = cq_next(q, q->tail);
 	internal_queue[index] = obj;
 	q->tail = index;
+	q->items++;
 	return 0;
 
 }
 
-int cq_dequeue(cqueue *q, int ret) {
+int cq_dequeue(cqueue *q, int buf) {
 	int *internal_queue = q->queue;
 	int index;
 
@@ -44,9 +45,10 @@ int cq_dequeue(cqueue *q, int ret) {
 		return -1;
 	}
 
-	ret = internal_queue[q->head];
-	if(q->items > 1)
+	buf = internal_queue[q->head];
+	if(q->items > 1) {
 		q->head = cq_next(q,q->head);
+	}
 	q->items--;
 	return 0;
 }
@@ -58,8 +60,10 @@ int cq_destroy(cqueue *q) {
 }
 
 static int cq_next(cqueue *q, int x) {
-	if(x == q->size - 1)
+	if(x == q->size - 1) {
 		return 0;
-	else
-		return x + 1;
+	}
+	else {
+		return x + 1;		
+	}
 }
