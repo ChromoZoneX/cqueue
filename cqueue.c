@@ -8,15 +8,11 @@
 #include "cqueue.h"
 
 static int cq_next(cqueue *q, int x) {
-	if(x == q->size - 1) {
-		return 0;
-	}
-	else {
-		return x + 1;		
-	}
+	if(x == q->size - 1) return 0;
+	else return x + 1;		
 }
 
-int cq_init(cqueue *q, int size) {
+int cq_init(cqueue *q, const int size) {
 	q->size = size;
 	q->queue = malloc(sizeof(int) * size);
 	if(!q->queue) {
@@ -28,7 +24,7 @@ int cq_init(cqueue *q, int size) {
 	return 0;
 }
 
-int cq_enqueue(cqueue *q, int obj) {
+int cq_enqueue(cqueue *q, const int obj) {
 	int *internal_queue = q->queue;
 	int index;
 
