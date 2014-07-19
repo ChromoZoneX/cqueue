@@ -82,7 +82,7 @@ int cq_print(cqueue *q) {
 	int index;
 	index = q->head;
 	while(index != q->tail) {
-		printf("%d", q->queue[index]);
+		printf("%d->", q->queue[index]);
 		index = cq_next(q, index);
 	}
 	printf("%d\n", q->queue[q->tail]);
