@@ -2,8 +2,8 @@
 
 
 int main(int argc, char *argv[]){
-	cqueue * mq ;
-	int size;
+	cqueue * mq = 0;
+	int size, i;
 	size = 10;
 	cq_init(mq, size);
 
@@ -13,10 +13,10 @@ int main(int argc, char *argv[]){
 	cq_print(mq);
 	for(i = 0; i < 5; i++){
 		int ret;
-		cq_dequeue(mq, &ret)
+		cq_dequeue(mq, &ret);
 		printf ("dequeued item: %d\n",ret);
 	}
 	cq_print(mq);
-	
+
 	return 0;
 }
