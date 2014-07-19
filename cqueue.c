@@ -37,6 +37,9 @@ int cq_enqueue(cqueue *q, int obj) {
 }
 
 int cq_dequeue(cqueue *q, int ret) {
+	int *internal_queue = q->queue;
+	int index;
+
 	if(q->size == 0){
 		return -1;
 	}
@@ -48,7 +51,7 @@ int cq_dequeue(cqueue *q, int ret) {
 
 int cq_destroy(cqueue *q, int obj) {
 	free(q->queue);
-	q.size = q.head = q.tail = q.items = q.size = 0;
+	q->size = q->head = q->tail = q->items = q->size = 0;
 	return 0;
 }
 
