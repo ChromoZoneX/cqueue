@@ -55,4 +55,6 @@ int cq_dequeue(cqueue *q, int ret);
  */
 int cq_destroy(cqueue *q);
 
+int cq_print(cqueue *q);
+
 #endif
