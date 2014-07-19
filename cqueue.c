@@ -37,12 +37,12 @@ int cq_enqueue(cqueue *q, int obj) {
 }
 
 int cq_dequeue(cqueue *q, int ret) {
-	if(q.size == 0){
+	if(q->size == 0){
 		return -1;
 	}
 	ret = head;
 	head = cq_next(q,head);
-	--q.items;
+	q->items--;
 	return 0;
 }
 
@@ -55,11 +55,4 @@ int cq_next(cqueue *q, int x) {
 		return 0;
 	else
 		return x + 1;
-}
-
-int cq_prev(cqueue *q, int x) {
-	if(x == 0)
-		return q->size - 1;
-	else
-		return x - 1; 
 }
