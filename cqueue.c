@@ -52,13 +52,13 @@ int cq_dequeue(cqueue *q, int ret) {
 	return 0;
 }
 
-int cq_destroy(cqueue *q, int obj) {
+int cq_destroy(cqueue *q) {
 	free(q->queue);
 	q->size = q->head = q->tail = q->items = q->size = 0;
 	return 0;
 }
 
-int cq_next(cqueue *q, int x) {
+static int cq_next(cqueue *q, int x) {
 	if(x == q->size - 1)
 		return 0;
 	else
