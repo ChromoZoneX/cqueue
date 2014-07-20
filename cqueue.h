@@ -37,7 +37,7 @@ int cq_init(cqueue *q, int size);
 	@param	obj	This is the object that you would like to add to the queue.
 	@return	Zero on success. Non-zero otherwise.
  */
-int cq_enqueue(cqueue *q, int buf);
+int cq_enqueue(cqueue *q, int obj);
 
 /*	This function allows you to remove an element in te queue. The removed element is put in the provided
 	buffer.
@@ -49,7 +49,7 @@ int cq_enqueue(cqueue *q, int buf);
 	@return Zero on success. Non-zero otherwise.
 
  */
-int cq_dequeue(cqueue *q, int *ret);
+int cq_dequeue(cqueue *q, int *buf);
 
 /*	This function must be called on a cqueue that has been initialized using the cq_init() function. If the
 	cqueue was never initialized, this will result in undefined behaviour.
