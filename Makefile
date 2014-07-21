@@ -3,7 +3,7 @@ CFLAGS=-Wall
 LD=gcc
 LDFLAGS=
 
-#DEBUG=-g
+DEBUG=-g
 
 OBJS=main.o cqueue.o
 

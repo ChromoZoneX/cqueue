@@ -45,7 +45,7 @@ int cq_dequeue(cqueue *q, int *buf) {
 	int *internal_queue = q->queue;
 
 	if(q->items == 0) {
-		printf("WARN: Queue is empty. Nothing to dequeue.");
+		printf("WARN: Queue is empty. Nothing to dequeue.\n");
 		return -1;
 	}
 
@@ -53,6 +53,11 @@ int cq_dequeue(cqueue *q, int *buf) {
 	if(q->items > 1) {
 		q->head = cq_next(q,q->head);
 	}
+	else{
+		//added in order for proper printing
+		internal_queue[q->head] = 0;
+	}
+	
 	q->items--;
 	return 0;
 }
