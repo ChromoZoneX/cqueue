@@ -6,3 +6,5 @@ notifications:
 compiler:
   - clang
   - gcc
+
+script: make clean && make
