@@ -17,6 +17,12 @@ typedef struct _cqueue {
 	int size;
 } cqueue;
 
+typedef struct _cq_node {
+	void *obj;
+	void *next;
+	void *prev;
+} cq_node;
+
 /* 	This function must be called before you actually do anything with the queue. It is recommended
  	that you allocate the required memory for the structure but NOT for the queue itself.
 	
@@ -27,6 +33,10 @@ typedef struct _cqueue {
  	@return	Zero on success. Non-zero otherwise.
  */
 int cq_init(cqueue *q, int size);
+
+int cq_init_list(cqueue *q, int size);
+
+int cq_init_array(cqueue *q, int size);
 
 /*	This function allows you to add an element to the queue you pass in. If the queue is full, a warning
 	is displayed and the queue is left unmodified.
